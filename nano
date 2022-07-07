@@ -1,0 +1,16 @@
+[Unit]
+Description=shop-admin-panel
+After=syslog.target
+
+[Service]
+WorkingDirectory=/home/ubuntu/shop-telegram-bot-/
+ExecStart=/usr/bin/java -jar /home/ubuntu/shop-telegram-bot-/admin-panel/target/admin-panel-1.0.0.jar
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=shop-admin-panel
+SuccessExitStatus=143
+Type=simple
+Restart=always
+
+[Install]
+WantedBy=multi-user.target reboot.target default.target poweroff.target
